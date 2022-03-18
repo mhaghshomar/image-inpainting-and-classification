@@ -1,0 +1,27 @@
+model:
+  class_path: osail.trainer.InpaintingTrainer
+  init_args:
+    model_params: 
+      in_channels: 1
+      features: [32, 64, 128, 256]
+optimizer:
+  class_path: torch.optim.Adam
+  init_args:
+    lr: 0.01
+data:
+  val_size: 0.05
+  batch_size: 16
+trainer:
+  # acceleration
+  devices: auto 
+  accelerator: auto
+  # training params
+  max_epochs: 50
+  # checkpointing
+  enable_checkpointing: True
+  callbacks:
+    - class_path: osail.trainer.inpainting.VisualizeStep
+      init_args:
+        every_n_steps: 50
+        log_train: True
+        log_val: False

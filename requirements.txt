@@ -1,0 +1,7 @@
+pytorch-lightning
+torch
+torchvision
+numpy
+Pillow
+jsonargparse[signatures]
+torchmetrics
